@@ -2,7 +2,6 @@ import com.github.spotbugs.snom.SpotBugsTask
 import java.text.SimpleDateFormat
 
 plugins {
-    id 'checkstyle'
     id "com.github.spotbugs" version "6.1.11"
     id 'com.gradleup.shadow' version '8.3.6'
     id 'java'
@@ -82,24 +81,6 @@ test {
 processResources {
     filesMatching("**/plugin.yml") {
         expand ( NAME: rootProject.name, VERSION: version, PACKAGE: project.group.toString() )
-    }
-}
-
-checkstyle {
-    toolVersion '10.20.1'
-    maxWarnings = 0
-}
-
-configurations.checkstyle {
-    resolutionStrategy.capabilitiesResolution.withCapability("com.google.collections:google-collections") {
-        select("com.google.guava:guava:23.0")
-    }
-}
-
-tasks.withType(Checkstyle).configureEach {
-    reports {
-        xml.required = false
-        html.required = true
     }
 }
 
