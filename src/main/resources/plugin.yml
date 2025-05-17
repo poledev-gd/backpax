@@ -1,5 +1,5 @@
-main: ${PACKAGE}.${NAME}
-name: ${NAME}
+main: ${lappsis}.${backpax}
+name: ${backpax}
 version: "${VERSION}"
 api-version: "1.21.1"
 author: AUTHOR
